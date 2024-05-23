@@ -9,10 +9,11 @@
                         <img src="{{ $comic->thumb }}" class="card-img-top" alt="{{ $comic->title }}">
                         <div class="card-body">
                             <h5 class="card-title">{{ $comic->title }}</h5>
-                            <div class="card-text text-success">${{ $comic->price }}</div>
+                            <div class="card-text text-primary">${{ $comic->price }}</div>
                             <div class="card-text">Series: {{ $comic->series }}</div>
                             <div class="card-text">Type: {{ $comic->type }}</div>
-                            <a href="#" class="btn btn-primary mt-2">More</a>
+                            <a href="{{ route('comics.show', ['comic' => $comic->id]) }}"
+                                class="btn btn-primary mt-2">More</a>
                         </div>
                     </div>
                 </div>
