@@ -30,6 +30,7 @@
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link fw-bold" href="{{ route('comics.index') }}">Comics List</a>
+                            <a class="nav-link fw-bold" href="{{ route('comics.create') }}">Add New Comic</a>
                         </li>
                     </ul>
                 </div>
