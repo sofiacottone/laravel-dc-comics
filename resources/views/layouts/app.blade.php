@@ -28,7 +28,7 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
+                        <li class="nav-item hstack">
                             <a class="nav-link fw-bold" href="{{ route('comics.index') }}">Comics List</a>
                             <a class="nav-link fw-bold" href="{{ route('comics.create') }}">Add New Comic</a>
                         </li>
