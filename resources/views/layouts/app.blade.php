@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <header>
+    <header class="mb-5">
         <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand fw-bold" aria-current="page" href="{{ route('home') }}">
