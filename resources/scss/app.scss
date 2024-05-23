@@ -1,1 +1,16 @@
 @import '~bootstrap/scss/bootstrap';
+
+
+.navbar-brand {
+    img {
+        height: 50px;
+    }
+}
+
+.ms-main-bg {
+    background-image: url('../img/dc-bg.jpeg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+}
