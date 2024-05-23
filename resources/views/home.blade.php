@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    home
+    <div class="container-fluid ms-main-bg"></div>
 @endsection
