@@ -12,8 +12,13 @@
                             <div class="card-text text-primary">${{ $comic->price }}</div>
                             <div class="card-text">Series: {{ $comic->series }}</div>
                             <div class="card-text">Type: {{ $comic->type }}</div>
-                            <a href="{{ route('comics.show', ['comic' => $comic->id]) }}"
-                                class="btn btn-primary mt-2">More</a>
+
+                            <div class="hstack gap-2">
+                                <a href="{{ route('comics.show', ['comic' => $comic->id]) }}"
+                                    class="btn btn-primary mt-2">More</a>
+                                <a href="{{ route('comics.edit', ['comic' => $comic->id]) }}"
+                                    class="btn btn-secondary mt-2">Edit</a>
+                            </div>
                         </div>
                     </div>
                 </div>
