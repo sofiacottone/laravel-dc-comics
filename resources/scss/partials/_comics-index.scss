@@ -1,0 +1,51 @@
+.ms-bg-img {
+    background-image: url('../img/dc-bg-black.jpg');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+}
+
+.card {
+
+    .card-img-top {
+        object-fit: cover;
+        object-position: top;
+    }
+}
+
+// responsive 
+@media screen and (min-width: 1400px) {
+    .card {
+
+        .card-img-top {
+            height: 410px;
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .card {
+
+        .card-img-top {
+            height: 350px;
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .card {
+
+        .card-img-top {
+            height: 400px;
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .card {
+
+        .card-img-top {
+            height: 500px;
+        }
+    }
+}
