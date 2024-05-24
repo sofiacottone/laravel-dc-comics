@@ -2,6 +2,10 @@
 
 @section('content')
     <div class="container py-5">
+        <div class="d-flex justify-content-end">
+            <a href="{{ route('comics.edit', ['comic' => $comic->id]) }}"
+                class="badge rounded-pill text-bg-secondary py-2 px-3">Edit</a>
+        </div>
         <div class="hstack justify-content-center">
             <img src="{{ $comic->thumb }}" alt="">
         </div>
