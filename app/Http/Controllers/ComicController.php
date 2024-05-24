@@ -43,13 +43,16 @@ class ComicController extends Controller
 
         $newComic = new Comic();
 
-        $newComic->title = $formData['title'];
-        $newComic->description = $formData['description'];
-        $newComic->thumb = $formData['thumb'];
-        $newComic->price = $formData['price'];
-        $newComic->series = $formData['series'];
-        $newComic->sale_date = $formData['sale_date'];
-        $newComic->type = $formData['type'];
+        // use fill() for mass assignment
+        $newComic->fill($formData);
+
+        // $newComic->title = $formData['title'];
+        // $newComic->description = $formData['description'];
+        // $newComic->thumb = $formData['thumb'];
+        // $newComic->price = $formData['price'];
+        // $newComic->series = $formData['series'];
+        // $newComic->sale_date = $formData['sale_date'];
+        // $newComic->type = $formData['type'];
 
         $newComic->save();
 
@@ -64,7 +67,7 @@ class ComicController extends Controller
      */
     public function show($id)
     {
-        $comic = Comic::find($id);
+        $comic = Comic::findOrFail($id);
         $data = [
             'comic' => $comic
         ];
