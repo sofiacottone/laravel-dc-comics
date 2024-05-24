@@ -6,11 +6,11 @@
             <a href="{{ route('comics.edit', ['comic' => $comic->id]) }}"
                 class="badge rounded-pill text-bg-secondary py-2 px-3">Edit</a>
         </div>
-        <div class="hstack justify-content-center">
-            <img src="{{ $comic->thumb }}" alt="">
+        <h2 class="text-center fw-bold mb-3">{{ $comic->title }}</h2>
+        <div class="d-flex justify-content-center ms-show-img">
+            <img src="{{ $comic->thumb }}" alt="{{ $comic->title }}">
         </div>
         <div class="vstack justify-content-center text-center mt-4">
-            <div class="h3 fw-bold">{{ $comic->title }}</div>
             <div class="fs-4 text-primary">${{ $comic->price }}</div>
             <div class="fs-4"><span class="fw-bold">Series: </span>{{ $comic->series }}</div>
             <div class="fs-4"><span class="fw-bold">Type: </span>{{ $comic->type }}</div>
