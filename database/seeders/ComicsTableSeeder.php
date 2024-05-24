@@ -19,14 +19,15 @@ class ComicsTableSeeder extends Seeder
             // create istance 
             $newComic = new Comic();
 
-            // populate attributes
-            $newComic->title = $comic['title'];
-            $newComic->description = $comic['description'];
-            $newComic->thumb = $comic['thumb'];
-            $newComic->price = $comic['price'];
-            $newComic->series = $comic['series'];
-            $newComic->sale_date = $comic['sale_date'];
-            $newComic->type = $comic['type'];
+            // populate attributes with mass assignment
+            $newComic->fill($comic);
+            // $newComic->title = $comic['title'];
+            // $newComic->description = $comic['description'];
+            // $newComic->thumb = $comic['thumb'];
+            // $newComic->price = $comic['price'];
+            // $newComic->series = $comic['series'];
+            // $newComic->sale_date = $comic['sale_date'];
+            // $newComic->type = $comic['type'];
 
             // save
             $newComic->save();
