@@ -27,9 +27,11 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item hstack">
+                    <ul class="navbar-nav d-flex">
+                        <li class="nav-item {{ Route::currentRouteName() === 'comics.index' ? 'active' : '' }}">
                             <a class="nav-link fw-bold" href="{{ route('comics.index') }}">Comics List</a>
+                        </li>
+                        <li class="nav-item {{ Route::currentRouteName() === 'comics.create' ? 'active' : '' }}">
                             <a class="nav-link fw-bold" href="{{ route('comics.create') }}">Add New Comic</a>
                         </li>
                     </ul>
