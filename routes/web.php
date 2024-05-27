@@ -19,3 +19,5 @@ use App\Http\Controllers\PageController as PageController;
 Route::get('/', [PageController::class, 'index'])->name('home');
 
 Route::resource('comics', ComicController::class);
+
+Route::get('/deleted', [ComicController::class, 'deleted'])->name('deleted');
