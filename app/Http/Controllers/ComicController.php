@@ -133,4 +133,28 @@ class ComicController extends Controller
         ];
         return view('comics.deleted', $data);
     }
+
+    /**
+     * Restore a specified soft deleted resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function restore($id)
+    {
+        Comic::withTrashed()->findOrFail($id)->restore();
+
+        return redirect()->route('comics.index');
+    }
+
+    /**
+     * Permanently delete a specified resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function forceDelete($id)
+    {
+        Comic::withTrashed()->findOrFail($id)->forceDelete();
+
+        return redirect()->route('comics.index');
+    }
 }
