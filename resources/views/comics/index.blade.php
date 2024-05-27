@@ -15,10 +15,19 @@
                                 <div class="card-text"><span class="fw-bold">Type: </span>{{ $comic->type }}</div>
 
                                 <div class="vstack justify-content-end">
-                                    <a href="{{ route('comics.show', ['comic' => $comic->id]) }}"
-                                        class="btn btn-outline-primary mt-2">More</a>
-                                    <a href="{{ route('comics.edit', ['comic' => $comic->id]) }}"
-                                        class="btn btn-outline-secondary mt-2">Edit</a>
+                                    <div class="d-flex gap-2">
+                                        <a href="{{ route('comics.show', ['comic' => $comic->id]) }}"
+                                            class="btn btn-outline-primary mt-2 col">More</a>
+                                        <a href="{{ route('comics.edit', ['comic' => $comic->id]) }}"
+                                            class="btn btn-outline-secondary mt-2 col">Edit</a>
+                                    </div>
+
+                                    <form action="{{ route('comics.destroy', ['comic' => $comic->id]) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" href="{{ route('comics.edit', ['comic' => $comic->id]) }}"
+                                            class="btn btn-outline-danger mt-2 w-100">Delete</abutton>
+                                    </form>
                                 </div>
                             </div>
                         </div>
