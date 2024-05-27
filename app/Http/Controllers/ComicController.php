@@ -119,4 +119,18 @@ class ComicController extends Controller
 
         return redirect()->route('comics.index');
     }
+
+    /**
+     * Display a listing of the deleted resources.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function deleted()
+    {
+        $comics = Comic::onlyTrashed()->get();
+        $data = [
+            'comics' => $comics
+        ];
+        return view('comics.deleted', $data);
+    }
 }
