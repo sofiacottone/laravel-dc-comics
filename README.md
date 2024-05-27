@@ -15,7 +15,7 @@ Steps:
 
 - created a new project with <u>composer</u>
 - created a <u>PageController</u>, a ComicController and a <u>Model</u>
-- created two <u>Routes</u>: one with <u>get</u> method and one with <u>resource</u> (CRUD operations: index, create, store, show, edit, update)
+- created two <u>Routes</u>: one with <u>get</u> method and one with <u>resource</u> (CRUD operations: index, create, store, show, edit, update, delete, restore, force delete)
 - created a new <u>Migration</u> and a <u>Seeder</u>
 - populated db with <u>Mass Assignment</u>
 - printed and manipulated data 
@@ -27,4 +27,7 @@ Pages:
 - single comic
 - add new comic
 - edit comic
+- soft delete comic
+- restore comic
+- permanently delete comic
 
