@@ -34,6 +34,9 @@
                         <li class="nav-item {{ Route::currentRouteName() === 'comics.create' ? 'active' : '' }}">
                             <a class="nav-link fw-bold" href="{{ route('comics.create') }}">Add New Comic</a>
                         </li>
+                        <li class="nav-item {{ Route::currentRouteName() === 'deleted' ? 'active' : '' }}">
+                            <a class="nav-link fw-bold" href="{{ route('deleted') }}">Deleted Comics</a>
+                        </li>
                     </ul>
                 </div>
             </div>
