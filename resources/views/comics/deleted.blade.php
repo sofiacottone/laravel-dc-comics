@@ -4,7 +4,7 @@
     <div class="container-fluid ms-bg-img">
         <div class="container py-4">
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
-                @foreach ($comics as $comic)
+                @forelse ($comics as $comic)
                     <div class="col mt-3">
                         <div class="card h-100">
                             <img src="{{ $comic->thumb }}" class="card-img-top" alt="{{ $comic->title }}">
@@ -15,9 +15,10 @@
                                 <div class="card-text"><span class="fw-bold">Type: </span>{{ $comic->type }}</div>
 
                                 <div class="vstack justify-content-end">
-                                    <a href="" class="btn btn-outline-success mt-2 col">Restore</a>
+                                    <a href="{{ route('restore', ['comic' => $comic->id]) }}"
+                                        class="btn btn-outline-success mt-2 col">Restore</a>
 
-                                    <form action="{{ route('comics.destroy', ['comic' => $comic->id]) }}" method="POST">
+                                    <form action="{{ route('forceDelete', ['comic' => $comic->id]) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" data-comic-title="{{ $comic->title }}"
@@ -28,7 +29,9 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                    <div class="ms-no-records text-uppercase text-center">Nothing found</div>
+                @endforelse
             </div>
 
             {{-- modal  --}}
