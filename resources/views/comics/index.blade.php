@@ -25,8 +25,7 @@
                                     <form action="{{ route('comics.destroy', ['comic' => $comic->id]) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" href="{{ route('comics.edit', ['comic' => $comic->id]) }}"
-                                            data-comic-title="{{ $comic->title }}"
+                                        <button type="submit" data-comic-title="{{ $comic->title }}"
                                             class="js-delete-btn btn btn-outline-danger mt-2 w-100">Delete</abutton>
                                     </form>
                                 </div>
