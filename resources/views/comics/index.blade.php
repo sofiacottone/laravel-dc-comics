@@ -26,7 +26,7 @@
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" data-comic-title="{{ $comic->title }}"
-                                            class="js-delete-btn btn btn-outline-danger mt-2 w-100">Delete</abutton>
+                                            class="js-delete-btn btn btn-outline-danger mt-2 w-100">Delete</button>
                                     </form>
                                 </div>
                             </div>
