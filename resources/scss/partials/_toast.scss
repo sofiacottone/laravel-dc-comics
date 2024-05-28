@@ -1,0 +1,13 @@
+.ms-toast {
+    position: fixed;
+    z-index: 99;
+    right: 20px;
+    bottom: 20px;
+    width: 30%;
+    padding: 10px 16px;
+    background-color: #00000070;
+    color: #fefefe;
+    border: 1px solid #888;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+}
