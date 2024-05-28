@@ -56,6 +56,15 @@
 
             </div>
 
+            {{-- toast  --}}
+            @if (session()->has('message'))
+                <div class="ms-toast">
+                    <div class="hstack align-items-center justify-content-between">
+                        <div>{{ session('message') }}</div>
+                        <div class="ms-close js-close-toast">&times;</div>
+                    </div>
+                </div>
+            @endif
         </div>
     </div>
 @endsection
