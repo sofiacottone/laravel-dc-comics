@@ -41,6 +41,24 @@ class ComicController extends Controller
     {
         $formData = $request->all();
 
+        // server-side data validation
+        $validated = $request->validate(
+            [
+                'title' => 'required|min:5|max:90',
+                'description' => 'required|min:5',
+                'thumb' => 'required|url',
+                'price' => 'required|decimal:2',
+                'series' => 'required|max:90',
+                'sale_date' => 'required|date',
+                'type' => 'required|max:45',
+            ],
+            [
+                'thumb.url' => 'The image url field must contain a valid URL.',
+                'sale_date.required' => 'The sale date field is required.',
+                'sale_date.date' => 'The sale date is not a valid date.',
+            ]
+        );
+
         $newComic = new Comic();
 
         // use fill() for mass assignment
@@ -100,6 +118,24 @@ class ComicController extends Controller
     {
         $comic = Comic::findOrFail($id);
         $formData = $request->all();
+
+        // server-side data validation
+        $validated = $request->validate(
+            [
+                'title' => 'required|min:5|max:90',
+                'description' => 'required|min:5',
+                'thumb' => 'required|url',
+                'price' => 'required|decimal:2',
+                'series' => 'required|max:90',
+                'sale_date' => 'required|date',
+                'type' => 'required|max:45',
+            ],
+            [
+                'thumb.url' => 'The image url field must contain a valid URL.',
+                'sale_date.required' => 'The sale date field is required.',
+                'sale_date.date' => 'The sale date is not a valid date.',
+            ]
+        );
 
         $comic->update($formData);
 
