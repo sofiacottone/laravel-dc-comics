@@ -37,7 +37,7 @@
             <div class="mb-3">
                 <label for="sale-date" class="form-label">Sale date (yyyy-mm-dd)</label>
                 <input type="text" class="form-control" id="sale-date" name="sale_date"
-                    value="{{ old('sale_date', $comic->sale_date) }}">
+                    value="{{ old('sale_date', $comic->sale_date->format('Y/m/d')) }}">
                 @error('sale_date')
                     <div class="text-danger ps-2 fw-bold">{{ $message }}</div>
                 @enderror
