@@ -124,6 +124,8 @@ class ComicController extends Controller
         $comic = Comic::findOrFail($id);
         $comic->delete();
 
+        session()->flash('message', 'Comic deleted successfully.');
+
         return redirect()->route('comics.index');
     }
 
