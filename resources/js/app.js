@@ -57,5 +57,12 @@ allDeleteButtons.forEach((deleteButton) => {
     });
 });
 
-
+// get the toast box
+const toastBox = document.querySelector('.ms-toast');
+// get the btn that closes the toast
+const closeToast = document.querySelector('.js-close-toast');
+// close the toast
+closeToast.onclick = function () {
+    toastBox.classList.add('d-none')
+};
 
