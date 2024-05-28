@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ComicController extends Controller
 {
@@ -42,22 +43,7 @@ class ComicController extends Controller
         $formData = $request->all();
 
         // server-side data validation
-        $validated = $request->validate(
-            [
-                'title' => 'required|min:5|max:90',
-                'description' => 'required|min:5',
-                'thumb' => 'required|url',
-                'price' => 'required|decimal:2',
-                'series' => 'required|max:90',
-                'sale_date' => 'required|date',
-                'type' => 'required|max:45',
-            ],
-            [
-                'thumb.url' => 'The image url field must contain a valid URL.',
-                'sale_date.required' => 'The sale date field is required.',
-                'sale_date.date' => 'The sale date is not a valid date.',
-            ]
-        );
+        $this->validation($formData);
 
         $newComic = new Comic();
 
@@ -120,22 +106,7 @@ class ComicController extends Controller
         $formData = $request->all();
 
         // server-side data validation
-        $validated = $request->validate(
-            [
-                'title' => 'required|min:5|max:90',
-                'description' => 'required|min:5',
-                'thumb' => 'required|url',
-                'price' => 'required|decimal:2',
-                'series' => 'required|max:90',
-                'sale_date' => 'required|date',
-                'type' => 'required|max:45',
-            ],
-            [
-                'thumb.url' => 'The image url field must contain a valid URL.',
-                'sale_date.required' => 'The sale date field is required.',
-                'sale_date.date' => 'The sale date is not a valid date.',
-            ]
-        );
+        $this->validation($formData);
 
         $comic->update($formData);
 
@@ -192,5 +163,32 @@ class ComicController extends Controller
         Comic::withTrashed()->findOrFail($id)->forceDelete();
 
         return redirect()->route('comics.index');
+    }
+
+    /**
+     * Validate a specified resource.
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    private function validation($data)
+    {
+        $validator = Validator::make(
+            $data,
+            [
+                'title' => 'required|min:5|max:90',
+                'description' => 'required|min:5',
+                'thumb' => 'required|url',
+                'price' => 'required|decimal:2',
+                'series' => 'required|max:90',
+                'sale_date' => 'required|date',
+                'type' => 'required|max:45',
+            ],
+            [
+                'thumb.url' => 'The image url field must contain a valid URL.',
+                'sale_date.required' => 'The sale date field is required.',
+                'sale_date.date' => 'The sale date is not a valid date.',
+            ]
+        )->validate();
+        return $validator;
     }
 }
